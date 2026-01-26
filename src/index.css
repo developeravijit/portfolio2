@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "impact";
+    src: url(/public/font/impact.ttf);
+}
+
+:root {
+    --primary-color: #FFFFFF;
+    --secondary-color: rgba(255, 255, 255, 0.6);
+    --tertiary-color: #D1D1D1;
+}
+
+body,
+html {
+    background: url(/public/image/bg1.png) no-repeat center/cover;
+    font-family: "impact";
+}
+
+
+.container {
+    max-width: 1350px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+
+}
+
+.hdr-container {
+    max-width: 1950px;
+}
+
+/* 
+=================================================
+Navbar
+=================================================
+*/
+
+.navbar {
+    background: url(/public/image/navbarBg.png) no-repeat center/cover;
+}
+
+.nav-item {
+    margin-right: 25px;
+
+}
+
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+.nav-links {
+    color: var(--secondary-color);
+    letter-spacing: 0.1em;
+    font-size: clamp(1rem, 1rem + 0.5vw, 1.29rem);
+}
+
+
+.nav-links.active {
+    color: var(--primary-color);
+}
+
+
+/* 
+=================================================
+Footer
+=================================================
+*/
+
+
+.footer-sec {
+    padding: 100px 0;
+}
+
+.contact-box {
+    position: relative;
+    max-width: 252px;
+    margin: 0 auto;
+}
+
+.hdr1 {
+    font-size: 60px;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(209, 209, 209, 0.7);
+
+}
+
+.hdr2 {
+    font-size: 48px;
+    color: var(--tertiary-color);
+    letter-spacing: 0.1em;
+    position: absolute;
+    right: 7%;
+    bottom: -7%;
+}
