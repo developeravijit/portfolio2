@@ -1,3 +1,9 @@
+import {
+  Facebook,
+  Github,
+  Instagram,
+} from "../components/SocialMedia/SocialMedia";
+
 const navLinks = [
   {
     id: 1,
@@ -29,4 +35,25 @@ const footerLinks = [
   },
 ];
 
-export { navLinks, footerLinks };
+const socialMedia = [
+  {
+    id: 1,
+    name: "facebook",
+    url: "facebook.com",
+    Icon: Facebook,
+  },
+  {
+    id: 2,
+    name: "Instagram",
+    url: "facebook.com",
+    Icon: Instagram,
+  },
+  {
+    id: 3,
+    name: "Github",
+    url: "facebook.com",
+    Icon: Github,
+  },
+];
+
+export { navLinks, footerLinks, socialMedia };

@@ -1,4 +1,4 @@
-import { footerLinks } from "../../constant";
+import { footerLinks, socialMedia } from "../../constant";
 
 const Footer = () => {
   return (
@@ -18,6 +18,17 @@ const Footer = () => {
             ))}
           </ul>
         </div>
+        <ul className="example-2">
+          {socialMedia.map(({ id, url, name, Icon }) => (
+            <li className="icon-content" key={id}>
+              <a href={url} aria-label={name}>
+                <div className="filled"></div>
+                <Icon />
+              </a>
+              <div className="tooltip">{name}</div>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );
