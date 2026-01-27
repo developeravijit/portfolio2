@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="contact-list">
           <ul className="flex justify-center items-center gap-7">
             {footerLinks.map(({ id, icon, name }) => (
-              <li key={id} className="flex items-center">
+              <li key={id} className="flex items-center ">
                 <img src={icon} alt="Call" />
                 <span>{name}</span>
               </li>

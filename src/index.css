@@ -138,7 +138,7 @@ Button
 
 .btn {
     position: relative;
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 0.9rem + 0.5vw, 1.29rem);
     display: flex;
     align-items: center;
     gap: 4px;
@@ -182,7 +182,6 @@ Button
 
 .btn .text {
     position: relative;
-
     transform: translateX(-12px);
     transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -247,12 +246,14 @@ Footer
     position: relative;
     max-width: 252px;
     margin: 0 auto 50px;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 
 
 .hdr1 {
-    font-size: 60px;
+    font-size: clamp(2.3rem, 6vw, 4.29rem);
     font-weight: normal;
     letter-spacing: 0.1em;
     color: transparent;
@@ -261,15 +262,61 @@ Footer
 }
 
 .hdr2 {
-    font-size: 48px;
+    font-size: clamp(2rem, 5vw, 3.43rem);
     color: var(--tertiary-color);
     letter-spacing: 0.1em;
     position: absolute;
-    right: 7%;
+    right: 0;
     bottom: -7%;
 }
 
 .contact-list li {
     color: rgba(255, 255, 255, 0.7);
     gap: 10px;
+    font-size: clamp(1rem, 0.95rem + 0.4vw, 1.43rem);
+}
+
+
+@media screen and (max-width:992px) {
+    .bnr-wrpr {
+        padding: 50px 0;
+    }
+
+    .profileImg {
+        max-width: 238px;
+    }
+
+    .hdr2 {
+        bottom: 20%;
+        right: 50%;
+        transform: translate(50%, 50%);
+    }
+}
+
+@media screen and (max-width:768px) {
+    .bnr-wrpr {
+        padding: 30px 0;
+    }
+
+    .profileImg {
+        max-width: 164px;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .bnr-wrpr {
+        padding: 5px 0;
+    }
+
+    .profileImg {
+        max-width: 110px;
+    }
+
+    .btn {
+        padding: 10px 30px;
+    }
+
+    .contact-list>ul {
+        flex-direction: column;
+    }
 }
