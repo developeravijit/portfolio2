@@ -52,51 +52,7 @@ button {
     max-width: 1950px;
 }
 
-/* 
-=================================================
-Navbar
-=================================================
-*/
 
-.navbar {
-    background: url(/public/image/navbarBg.png) no-repeat center/cover;
-}
-
-.nav-item {
-    margin-right: 25px;
-
-}
-
-.nav-item:last-child {
-    margin-right: 0;
-}
-
-.nav-links {
-    color: var(--secondary-color);
-    letter-spacing: 0.1em;
-    font-size: clamp(1rem, 1rem + 0.5vw, 1.29rem);
-}
-
-
-.nav-links.active {
-    color: var(--primary-color);
-}
-
-
-/* 
-=================================================
-Banner
-=================================================
-*/
-
-.bnr-wrpr {
-    padding: 100px 0;
-}
-
-.bnr-hdr {
-    position: relative;
-    margin: 50px 0;
-}
 
 .title1 {
     max-width: 1200px;
@@ -126,15 +82,47 @@ Banner
     z-index: 1;
 }
 
-.profileImg {
-    max-width: 300px;
+
+
+
+.title2 {
+    position: relative;
+    max-width: 252px;
+    margin: 0 auto 50px;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.title2::after {
+    content: "";
     position: absolute;
-    bottom: 80%;
-    right: 30%;
-    transform: translate(50%, 50%);
+    width: 90px;
+    height: 2px;
+    background: var(--primary-color);
+    top: 90%;
+    right: -55%;
+    transform: translate(-50%, 50%);
+}
+
+
+.hdr1 {
+    font-size: clamp(2.3rem, 6vw, 4.29rem);
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(209, 209, 209, 0.7);
 
 }
 
+.hdr2 {
+    font-size: clamp(2rem, 5vw, 3.43rem);
+    color: var(--tertiary-color);
+    letter-spacing: 0.1em;
+    position: absolute;
+    right: 0;
+    bottom: -7%;
+}
 
 /* 
 ---------------------------------------
@@ -162,7 +150,7 @@ Button
     line-height: 30px;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     /* box-shadow: inset 0px 4px 60px 10px #666666; */
-    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+    -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
     z-index: 1;
 
     &:hover {
@@ -200,7 +188,7 @@ Button
     width: 100%;
     height: 100%;
     border-radius: 16px;
-    background-color: rgba(255, 37, 226, 0.6);
+    background: linear-gradient(to right, #FF25E2 49%, #2600FF 90%);
     transform: translateX(-100%);
     transition: all .3s;
     z-index: -1;
@@ -233,6 +221,146 @@ Button
     fill: var(--primary-color);
 }
 
+.secondary-btn svg {
+    left: 90%;
+    right: auto;
+    transform: translateX(-50%);
+}
+
+.btn.secondary-btn::before {
+    transform: translateY(-100%);
+}
+
+.btn.secondary-btn .text {
+    transform: translateX(-12px);
+}
+
+.secondary-btn .text2 {
+    position: absolute;
+    transform: translateY(-50px) translateX(-12px);
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0;
+}
+
+.secondary-btn:hover .text2 {
+    transform: translateY(0) translateX(-12px);
+    opacity: 1;
+}
+
+.btn.secondary-btn:hover .text {
+    transform: translateX(-12px) translateY(-20px);
+    opacity: 0;
+}
+
+.btn.secondary-btn:hover::before {
+    transform: translateX(0);
+}
+
+.btn.secondary-btn .arr-1 {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.btn.secondary-btn:hover .arr-1 {
+    transform: translate(-50%, 200%);
+
+}
+
+.btn.secondary-btn .arr-2 {
+    transform: translate(-50%, -200%);
+    left: 90%;
+}
+
+.btn.secondary-btn:hover .arr-2 {
+    transform: translate(-50%, 0%);
+}
+
+/* 
+=================================================
+Navbar
+=================================================
+*/
+
+.navbar {
+    background: url(/public/image/navbarBg.png) no-repeat center/cover;
+}
+
+.nav-item {
+    margin-right: 25px;
+
+}
+
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+.nav-links {
+    color: var(--secondary-color);
+    letter-spacing: 0.1em;
+    font-size: clamp(1rem, 1rem + 0.5vw, 1.29rem);
+}
+
+
+.nav-links.active {
+    color: var(--primary-color);
+}
+
+
+
+/* 
+=================================================
+Banner
+=================================================
+*/
+
+.section-tab {
+    padding: 100px 0 0;
+}
+
+.bnr-hdr {
+    position: relative;
+    margin: 50px 0;
+}
+
+
+
+
+.profileImg {
+    max-width: 300px;
+    position: absolute;
+    bottom: 80%;
+    right: 30%;
+    transform: translate(50%, 50%);
+
+}
+
+
+
+
+/* 
+=================================================
+About Me
+=================================================
+*/
+.abt-sec {
+    padding: 50px 0 0;
+}
+
+.abt-sec .bnr-hdr {
+    margin: 50px 0px 0;
+}
+
+.content p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(1rem, 0.95rem + 0.35vw, 1.43rem);
+    line-height: 30px;
+    letter-spacing: 0.1em;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
 /* 
 =================================================
 Footer
@@ -241,40 +369,14 @@ Footer
 
 
 .footer-sec {
-    padding: 100px 0;
+    padding: 100px 0 0;
 }
 
 .footer-wrpr {
     margin: 0 auto;
 }
 
-.contact-box {
-    position: relative;
-    max-width: 252px;
-    margin: 0 auto 50px;
-    text-align: center;
-    text-transform: uppercase;
-}
 
-
-
-.hdr1 {
-    font-size: clamp(2.3rem, 6vw, 4.29rem);
-    font-weight: normal;
-    letter-spacing: 0.1em;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(209, 209, 209, 0.7);
-
-}
-
-.hdr2 {
-    font-size: clamp(2rem, 5vw, 3.43rem);
-    color: var(--tertiary-color);
-    letter-spacing: 0.1em;
-    position: absolute;
-    right: 0;
-    bottom: -7%;
-}
 
 .contact-list li {
     color: rgba(255, 255, 255, 0.7);
@@ -333,7 +435,7 @@ li:hover::after {
     visibility: visible;
     bottom: -40px;
     background:
-        linear-gradient(to right, #FF25E2 49%, #2600FF 90%),
+        linear-gradient(to right, #ff25e271 49%, #2600ff67 90%),
         linear-gradient(to bottom, #666666 0%, #000000 100%);
     background-origin: padding-box, border-box;
     background-clip: padding-box, border-box;
@@ -400,8 +502,20 @@ li:hover::after {
 
 /* Social Media End */
 
+.footer-end {
+    font-size: clamp(2rem, 8vw, 8.57rem);
+    color: rgba(209, 209, 209, 0.1);
+}
+
+
+/* 
+=================================================
+Responsive
+=================================================
+*/
+
 @media screen and (max-width:992px) {
-    .bnr-wrpr {
+    .section-tab {
         padding: 50px 0;
     }
 
@@ -414,20 +528,33 @@ li:hover::after {
         right: 50%;
         transform: translate(50%, 50%);
     }
+
+    .hdr-box::after {
+        right: -50%;
+    }
+
+    .footer-sec {
+        padding: 70px 0px 0;
+    }
+
 }
 
 @media screen and (max-width:768px) {
-    .bnr-wrpr {
+    .section-tab {
         padding: 30px 0;
     }
 
     .profileImg {
         max-width: 164px;
     }
+
+    .title2::after {
+        right: -40%;
+    }
 }
 
 @media screen and (max-width:576px) {
-    .bnr-wrpr {
+    .section-tab {
         padding: 5px 0;
     }
 
@@ -441,5 +568,22 @@ li:hover::after {
 
     .contact-list>ul {
         flex-direction: column;
+    }
+
+    .title2 {
+        margin: 0 auto 30px;
+    }
+
+    .content p {
+        margin-bottom: 30px;
+    }
+
+    .title2::after {
+        right: -10%;
+        width: 50px;
+    }
+
+    .abt-sec {
+        padding: 30px 0 0;
     }
 }

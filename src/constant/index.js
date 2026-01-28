@@ -2,6 +2,7 @@ import {
   Facebook,
   Github,
   Instagram,
+  Linkedin,
 } from "../components/SocialMedia/SocialMedia";
 
 const navLinks = [
@@ -27,32 +28,40 @@ const footerLinks = [
     id: 1,
     icon: "icons/call.svg",
     name: "8910806300",
+    link: "tel:8910806300",
   },
   {
     id: 2,
     icon: "icons/message.svg",
     name: "roysidharth1996@gmail.com",
+    link: "mailto:roysidharth1996@gmail.com",
   },
 ];
 
 const socialMedia = [
   {
     id: 1,
-    name: "facebook",
-    url: "facebook.com",
-    Icon: Facebook,
+    name: "Linkedin",
+    url: "https://www.linkedin.com/in/avijit-roy-22a21a164/",
+    Icon: Linkedin,
   },
   {
     id: 2,
-    name: "Instagram",
-    url: "facebook.com",
-    Icon: Instagram,
+    name: "Github",
+    url: "https://github.com/developeravijit",
+    Icon: Github,
   },
   {
     id: 3,
-    name: "Github",
-    url: "facebook.com",
-    Icon: Github,
+    name: "facebook",
+    url: "https://www.facebook.com/avijit.roy.815747/",
+    Icon: Facebook,
+  },
+  {
+    id: 4,
+    name: "Instagram",
+    url: "https://www.instagram.com/avijitroy0098/",
+    Icon: Instagram,
   },
 ];
 

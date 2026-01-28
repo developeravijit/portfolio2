@@ -1,11 +1,11 @@
-import PrimaryBtn from "../../PrimaryBtn/PrimaryBtn";
+import PrimaryBtn from "../../Button/PrimaryBtn";
 
 const Banner = () => {
   return (
-    <div className="bnr-wrpr">
+    <section className="section-tab">
       <div className="container">
         <div className="bnr-hdr">
-          <h1 className="title1 flex flex-col">
+          <h1 className="title1 flex flex-col select-none">
             <span className="hdrTitle1">frontend</span>
             <span className="hdrTitle2">Developer</span>
           </h1>
@@ -15,7 +15,7 @@ const Banner = () => {
         </div>
         <PrimaryBtn name="Contact Me" />
       </div>
-    </div>
+    </section>
   );
 };
 
