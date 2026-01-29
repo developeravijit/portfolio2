@@ -73,7 +73,7 @@ p {
     font-size: clamp(3.5rem, 13.2vw, 15rem);
     font-weight: normal;
     letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .hdrTitle2 {
@@ -106,7 +106,7 @@ p {
     position: absolute;
     width: 90px;
     height: 2px;
-    background: var(--primary-color);
+    background: rgba(255, 255, 255, 0.7);
     top: 90%;
     right: -55%;
     transform: translate(-50%, 50%);
@@ -124,7 +124,7 @@ p {
 
 .hdr2 {
     font-size: clamp(2rem, 5vw, 3.43rem);
-    color: var(--tertiary-color);
+    color: rgba(255, 255, 255, 0.7);
     letter-spacing: 0.1em;
     position: absolute;
     right: 0;
@@ -146,8 +146,6 @@ Button
     padding: 15px 30px;
     border-radius: 16px;
     text-transform: capitalize;
-    border: 1px solid #2600FF;
-    /* background: linear-gradient(to bottom, rgba(255, 37, 226, 1) 49%, rgba(38, 0, 255, 1) 90%); */
     background: transparent;
     overflow: hidden;
     color: var(--secondary-color);
@@ -156,14 +154,37 @@ Button
     letter-spacing: 0.1em;
     line-height: 30px;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    /* box-shadow: inset 0px 4px 60px 10px #666666; */
     -webkit-box-reflect: below 10px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
     z-index: 1;
+    user-select: none;
 
     &:hover {
         color: var(--primary-color);
     }
 }
+
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    border-radius: 16px;
+    padding: 1.5px;
+
+    background: linear-gradient(to right,
+            #FF25E2 49%,
+            #2600FF 90%);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    pointer-events: none;
+    z-index: 2;
+}
+
+
 
 .btn svg {
     position: absolute;
@@ -190,14 +211,13 @@ Button
 .btn::before {
     content: "";
     position: absolute;
-    left: 0;
-    top: 0;
+    inset: 1.5px;
+    border-radius: calc(16px - 1.5px);
     width: 100%;
     height: 100%;
-    border-radius: 16px;
     background:
-        linear-gradient(to right, #ff25e271 49%, #2600ff67 90%),
-        linear-gradient(to bottom, #666666 0%, #000000 100%);
+        linear-gradient(to right, #ff25e24f 49%, #2600ff43 90%) padding-box,
+        linear-gradient(to bottom, #666666 0%, #000000 100%) border-box;
     transform: translateX(-100%);
     transition: all .3s;
     z-index: -1;
@@ -308,6 +328,8 @@ Navbar
     color: var(--secondary-color);
     letter-spacing: 0.1em;
     font-size: clamp(1rem, 1rem + 0.5vw, 1.29rem);
+    position: relative;
+    overflow: hidden;
 }
 
 
@@ -316,6 +338,27 @@ Navbar
 }
 
 
+
+.animate-name1 {
+    position: relative;
+    transition: all 1.1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.animate-name2 {
+    position: absolute;
+    transform: translateY(-50px);
+    transition: all 1.1s cubic-bezier(0.23, 1, 0.32, 1);
+    opacity: 0;
+}
+
+.nav-links:hover .animate-name1 {
+    transform: translateY(100px);
+}
+
+.nav-links:hover .animate-name2 {
+    transform: translateY(0);
+    opacity: 1;
+}
 
 /* 
 =================================================
@@ -364,10 +407,166 @@ About Me
     color: rgba(255, 255, 255, 0.4);
     font-size: clamp(1rem, 0.95rem + 0.35vw, 1.43rem);
     line-height: 30px;
-    letter-spacing: 0.1em;
     text-transform: capitalize;
     text-align: center;
     margin-bottom: 50px;
+}
+
+/* 
+=================================================
+Skills
+=================================================
+*/
+
+.skill-list {
+    font-family: "Lato", sans-serif;
+    font-size: clamp(1rem, 0.95rem + 0.35vw, 1.5rem);
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.4);
+
+}
+
+.skill-list span:first-child {
+    font-weight: 700;
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.techCard {
+    max-width: 550px;
+    margin: 0 auto;
+    position: relative;
+    padding-block: 50px;
+    overflow: hidden;
+
+    -webkit-mask-image: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.9) 18%,
+            rgba(255, 255, 255, 1) 50%,
+            rgba(255, 255, 255, 0.9) 82%,
+            rgba(255, 255, 255, 0) 100%);
+
+    mask-image: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.9) 18%,
+            rgba(255, 255, 255, 1) 50%,
+            rgba(255, 255, 255, 0.9) 82%,
+            rgba(255, 255, 255, 0) 100%);
+
+}
+
+
+.icons {
+    width: 44px;
+    position: absolute;
+    animation: slideToRight linear infinite;
+    animation-duration: var(--animation-duration);
+    animation-delay: calc(var(--animation-duration) / var(--services-totalItems) * ((var(--services-totalItems) - var(--i)) * -1));
+
+}
+
+@keyframes slideToRight {
+    0% {
+        right: -20%;
+    }
+
+    100% {
+        right: 97%;
+    }
+}
+
+
+/* 
+=================================================
+Project 
+=================================================
+*/
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+    background: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    color: #fff;
+    font-weight: 500;
+    height: 200px;
+    max-height: 100vh;
+}
+
+.number-slide1 {
+    background: rgb(64, 175, 255);
+    background: linear-gradient(128deg,
+            rgba(64, 175, 255, 1) 0%,
+            rgba(63, 97, 255, 1) 100%);
+}
+
+.number-slide2 {
+    background: rgb(255, 75, 64);
+    background: linear-gradient(128deg,
+            rgba(255, 154, 63, 1) 0%,
+            rgba(255, 75, 64, 1) 100%);
+}
+
+.number-slide3 {
+    background: rgb(182, 255, 64);
+    background: linear-gradient(128deg,
+            rgba(182, 255, 64, 1) 0%,
+            rgba(63, 255, 71, 1) 100%);
+    background: linear-gradient(128deg,
+            rgba(189, 255, 83, 1) 0%,
+            rgba(43, 250, 82, 1) 100%);
+}
+
+.number-slide4 {
+    background: rgb(64, 255, 242);
+    background: linear-gradient(128deg,
+            rgba(64, 255, 242, 1) 0%,
+            rgba(63, 188, 255, 1) 100%);
+}
+
+.number-slide5 {
+    background: rgb(255, 64, 156);
+    background: linear-gradient(128deg,
+            rgba(255, 64, 156, 1) 0%,
+            rgba(255, 63, 63, 1) 100%);
+}
+
+.number-slide6 {
+    background: rgb(64, 76, 255);
+    background: linear-gradient(128deg,
+            rgba(64, 76, 255, 1) 0%,
+            rgba(174, 63, 255, 1) 100%);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.scene {
+    width: 260px;
+    height: 200px;
+    perspective: 1000px;
+    position: relative;
+}
+
+.scene .carousel.keen-slider {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: visible;
+    transform: translateZ(-288px);
+    transform-style: preserve-3d;
+}
+
+.carousel__cell {
+    position: absolute;
+    width: 240px;
+    left: 10px;
+    height: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 /* 
@@ -517,68 +716,6 @@ li:hover::after {
 }
 
 
-/* 
-=================================================
-Skills
-=================================================
-*/
-
-.skill-list {
-    font-family: "Lato", sans-serif;
-    font-size: clamp(1rem, 0.95rem + 0.35vw, 1.5rem);
-    letter-spacing: 0.15em;
-    color: rgba(255, 255, 255, 0.4);
-
-}
-
-.skill-list span:first-child {
-    font-weight: 700;
-    margin-right: 10px;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.techCard {
-    max-width: 550px;
-    margin: 10px auto 0;
-    position: relative;
-    padding-block: 50px;
-    overflow: hidden;
-
-    -webkit-mask-image: linear-gradient(90deg,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.9) 18%,
-            rgba(255, 255, 255, 1) 50%,
-            rgba(255, 255, 255, 0.9) 82%,
-            rgba(255, 255, 255, 0) 100%);
-
-    mask-image: linear-gradient(90deg,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.9) 18%,
-            rgba(255, 255, 255, 1) 50%,
-            rgba(255, 255, 255, 0.9) 82%,
-            rgba(255, 255, 255, 0) 100%);
-
-}
-
-
-.icons {
-    width: 44px;
-    position: absolute;
-    animation: slideToRight linear infinite;
-    animation-duration: var(--animation-duration);
-    animation-delay: calc(var(--animation-duration) / var(--services-totalItems) * ((var(--services-totalItems) - var(--i)) * -1));
-
-}
-
-@keyframes slideToRight {
-    0% {
-        right: -20%;
-    }
-
-    100% {
-        right: 97%;
-    }
-}
 
 
 /* 

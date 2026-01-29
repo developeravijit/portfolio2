@@ -13,10 +13,11 @@ const Navbar = () => {
                   <NavLink
                     to={path}
                     className={({ isActive }) =>
-                      `nav-links ${isActive ? "active" : ""}`
+                      `nav-links ${isActive ? "active" : ""} flex flex-col`
                     }
                   >
-                    {name}
+                    <span className="animate-name1">{name}</span>
+                    <span className="animate-name2">{name}</span>
                   </NavLink>
                 </li>
               ))}
