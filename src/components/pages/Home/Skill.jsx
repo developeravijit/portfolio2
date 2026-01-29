@@ -15,7 +15,7 @@ const Skill = () => {
             {skills.map(({ id, category, items }) => (
               <li
                 key={id}
-                className="skill-list flex justify-center items-center mb-2"
+                className="skill-list text-center flex justify-center items-center mb-2"
               >
                 <span>{category}</span>
                 <span>{items}</span>

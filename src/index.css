@@ -150,7 +150,6 @@ Button
     overflow: hidden;
     color: var(--secondary-color);
     cursor: pointer;
-    font-weight: 500;
     letter-spacing: 0.1em;
     line-height: 30px;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -482,62 +481,19 @@ Project
 =================================================
 */
 
-[class^="number-slide"],
-[class*=" number-slide"] {
-    background: grey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 50px;
-    color: #fff;
-    font-weight: 500;
-    height: 200px;
-    max-height: 100vh;
+
+
+.project-btn>.buttonBox {
+    justify-content: end !important;
 }
 
-.number-slide1 {
-    background: rgb(64, 175, 255);
-    background: linear-gradient(128deg,
-            rgba(64, 175, 255, 1) 0%,
-            rgba(63, 97, 255, 1) 100%);
-}
-
-.number-slide2 {
-    background: rgb(255, 75, 64);
-    background: linear-gradient(128deg,
-            rgba(255, 154, 63, 1) 0%,
-            rgba(255, 75, 64, 1) 100%);
-}
-
-.number-slide3 {
-    background: rgb(182, 255, 64);
-    background: linear-gradient(128deg,
-            rgba(182, 255, 64, 1) 0%,
-            rgba(63, 255, 71, 1) 100%);
-    background: linear-gradient(128deg,
-            rgba(189, 255, 83, 1) 0%,
-            rgba(43, 250, 82, 1) 100%);
-}
-
-.number-slide4 {
-    background: rgb(64, 255, 242);
-    background: linear-gradient(128deg,
-            rgba(64, 255, 242, 1) 0%,
-            rgba(63, 188, 255, 1) 100%);
-}
-
-.number-slide5 {
-    background: rgb(255, 64, 156);
-    background: linear-gradient(128deg,
-            rgba(255, 64, 156, 1) 0%,
-            rgba(255, 63, 63, 1) 100%);
-}
-
-.number-slide6 {
-    background: rgb(64, 76, 255);
-    background: linear-gradient(128deg,
-            rgba(64, 76, 255, 1) 0%,
-            rgba(174, 63, 255, 1) 100%);
+.carousel__cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    object-position: top;
+    border-radius: 30px;
 }
 
 .wrapper {
@@ -550,6 +506,7 @@ Project
     height: 200px;
     perspective: 1000px;
     position: relative;
+
 }
 
 .scene .carousel.keen-slider {
@@ -567,7 +524,11 @@ Project
     left: 10px;
     height: 200px;
     border: 1px solid rgba(0, 0, 0, 0.3);
+    -webkit-box-reflect: below 12px linear-gradient(transparent, rgba(0, 0, 0, 0.4));
+    cursor: grabbing;
 }
+
+
 
 /* 
 =================================================
@@ -768,6 +729,10 @@ Responsive
         padding: 5px 0;
     }
 
+    .project-sec {
+        padding: 50px 0 0;
+    }
+
     .profileImg {
         max-width: 110px;
     }
@@ -818,4 +783,6 @@ Responsive
             right: 120%;
         }
     }
+
+
 }

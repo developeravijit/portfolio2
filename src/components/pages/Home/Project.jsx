@@ -1,5 +1,8 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
+import { projectSlides } from "../../../constant";
+import { useRef } from "react";
+import PrimaryBtn from "../../Button/PrimaryBtn";
 const carousel = (slider) => {
   const z = 300;
   function rotate() {
@@ -16,8 +19,14 @@ const carousel = (slider) => {
   slider.on("detailsChanged", rotate);
 };
 const Project = () => {
+  const isDragging = useRef(false);
+
   const [sliderRef] = useKeenSlider(
     {
+      dragStart: () => (isDragging.current = true),
+      dragEnd: () => {
+        setTimeout(() => (isDragging.current = false), 0);
+      },
       loop: true,
       selector: ".carousel__cell",
       renderMode: "custom",
@@ -26,16 +35,27 @@ const Project = () => {
     [carousel],
   );
   return (
-    <section className="section-tab">
-      <div className="wrapper">
-        <div className="scene">
-          <div className="carousel keen-slider" ref={sliderRef}>
-            <div className="carousel__cell number-slide1 ">1</div>
-            <div className="carousel__cell number-slide2">2</div>
-            <div className="carousel__cell number-slide3">3</div>
-            <div className="carousel__cell number-slide4">4</div>
-            <div className="carousel__cell number-slide5">5</div>
-            <div className="carousel__cell number-slide6">6</div>
+    <section className="section-tab project-sec">
+      <div className="container">
+        <div className="project-btn mb-2.5">
+          <PrimaryBtn name="Projects" />
+        </div>
+        <div className="wrapper">
+          <div className="scene">
+            <div className="carousel keen-slider" ref={sliderRef}>
+              {projectSlides.map(({ id, image, url }) => (
+                <div
+                  className="carousel__cell"
+                  key={id}
+                  onClick={() => {
+                    if (isDragging.current) return;
+                    window.open(url, "_blank");
+                  }}
+                >
+                  <img src={image} alt="" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
