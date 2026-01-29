@@ -14,8 +14,8 @@
     --primary-color: #FFFFFF;
     --secondary-color: rgba(255, 255, 255, 0.6);
     --tertiary-color: #D1D1D1;
-    --animation-duration: 24s;
-    --services-totalItems: 6;
+    --animation-duration: 32s;
+    --services-totalItems: 8;
 }
 
 body,

@@ -69,7 +69,7 @@ const skills = [
   {
     id: 1,
     category: "Frontend Tools:",
-    items: ["HTML, CSS, JavaScript, React"],
+    items: ["HTML, CSS, JavaScript, TypeScript, React"],
   },
   {
     id: 2,
@@ -114,6 +114,16 @@ const techIcon = [
     id: 6,
     image: "icons/git.png",
     name: "Git",
+  },
+  {
+    id: 7,
+    image: "icons/react.png",
+    name: "React",
+  },
+  {
+    id: 8,
+    image: "icons/typescript.png",
+    name: "Typescript",
   },
 ];
 
