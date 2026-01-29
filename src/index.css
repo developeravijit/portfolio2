@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 * {
     box-sizing: border-box;
@@ -13,6 +14,8 @@
     --primary-color: #FFFFFF;
     --secondary-color: rgba(255, 255, 255, 0.6);
     --tertiary-color: #D1D1D1;
+    --animation-duration: 24s;
+    --services-totalItems: 6;
 }
 
 body,
@@ -39,6 +42,10 @@ button {
     outline: none;
 }
 
+p {
+    font-family: "Lato", sans-serif;
+
+}
 
 .container {
     max-width: 1350px;
@@ -188,7 +195,9 @@ Button
     width: 100%;
     height: 100%;
     border-radius: 16px;
-    background: linear-gradient(to right, #FF25E2 49%, #2600FF 90%);
+    background:
+        linear-gradient(to right, #ff25e271 49%, #2600ff67 90%),
+        linear-gradient(to bottom, #666666 0%, #000000 100%);
     transform: translateX(-100%);
     transition: all .3s;
     z-index: -1;
@@ -248,7 +257,7 @@ Button
 }
 
 .btn.secondary-btn:hover .text {
-    transform: translateX(-12px) translateY(-20px);
+    transform: translateX(-12px) translateY(-5px);
     opacity: 0;
 }
 
@@ -351,8 +360,8 @@ About Me
     margin: 50px 0px 0;
 }
 
-.content p {
-    color: rgba(255, 255, 255, 0.7);
+.abt-content p {
+    color: rgba(255, 255, 255, 0.4);
     font-size: clamp(1rem, 0.95rem + 0.35vw, 1.43rem);
     line-height: 30px;
     letter-spacing: 0.1em;
@@ -510,6 +519,53 @@ li:hover::after {
 
 /* 
 =================================================
+Skills
+=================================================
+*/
+
+.skill-list {
+    font-family: "Lato", sans-serif;
+    font-size: clamp(1rem, 0.95rem + 0.35vw, 1.5rem);
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.4);
+
+}
+
+.skill-list span:first-child {
+    font-weight: 700;
+    margin-right: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.techCard {
+    max-width: 550px;
+    margin: 10px auto 0;
+    position: relative;
+    padding-block: 50px;
+    overflow: hidden;
+}
+
+.icons {
+    width: 44px;
+    position: absolute;
+    animation: slideToRight linear infinite;
+    animation-duration: var(--animation-duration);
+    animation-delay: calc(var(--animation-duration) / var(--services-totalItems) * ((var(--services-totalItems) - var(--i)) * -1));
+}
+
+@keyframes slideToRight {
+    0% {
+        right: -20%;
+    }
+
+    100% {
+        right: 80%;
+    }
+}
+
+
+/* 
+=================================================
 Responsive
 =================================================
 */
@@ -574,7 +630,7 @@ Responsive
         margin: 0 auto 30px;
     }
 
-    .content p {
+    .abt-content p {
         margin-bottom: 30px;
     }
 
@@ -585,5 +641,27 @@ Responsive
 
     .abt-sec {
         padding: 30px 0 0;
+    }
+
+    .skill-list {
+        flex-direction: column;
+    }
+
+    .skill-list span:first-child{
+        margin-bottom: 5px;
+    }
+
+    .icons {
+        width: 35px;
+    }
+
+    @keyframes slideToRight {
+        0% {
+            right: -20%;
+        }
+
+        100% {
+            right: 120%;
+        }
     }
 }

@@ -4,7 +4,7 @@ const AboutMe = () => {
   return (
     <section className="section-tab abt-sec">
       <div className="container">
-        <div className="content">
+        <div className="abt-content">
           <div className="bnr-hdr">
             <h2 className="title2 select-none">
               <span className="hdr1">about me</span>
