@@ -24,7 +24,7 @@ const Skill = () => {
           </ul>
           <div className="techCard">
             {techIcon.map(({ id, image, name }, i) => (
-              <div className="icons" key={id} style={{ "--i": i + 1 }}>
+              <div className="icons select-none" key={id} style={{ "--i": i + 1 }}>
                 <img src={image} alt={name} />
               </div>
             ))}
