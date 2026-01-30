@@ -1,13 +1,24 @@
 import { NavLink } from "react-router-dom";
 import { navLinks } from "../../constant";
+import Hamberger from "../Button/Hamberger";
+import { useState } from "react";
 
 const Navbar = () => {
+  const { open, setOpen } = useState(false);
   return (
-    <header>
-      <nav className="navbar py-7">
-        <div className="container">
-          <div className="navbar-nav flex">
-            <ul className="flex items-center ml-auto">
+    <header className="hdr-sec">
+      <div className="container">
+        <nav className="navbar flex justify-between items-center">
+          <div className="logo">
+            <img src={"image/logo4.png"} alt="Avijit" />
+          </div>
+          <div className="hamberger-btn">
+            <Hamberger />
+          </div>
+          <div className="navbar-nav flex items-center">
+            <ul
+              className={`offcanvas ${open ? "active" : ""} flex items-center ml-auto`}
+            >
               {navLinks.map(({ id, name, path }) => (
                 <li key={id} className="nav-item">
                   <NavLink
@@ -23,8 +34,8 @@ const Navbar = () => {
               ))}
             </ul>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
   );
 };

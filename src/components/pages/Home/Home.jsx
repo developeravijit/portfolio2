@@ -1,7 +1,4 @@
-import Banner from "./Banner";
-import AboutMe from "./AboutMe";
-import Skill from "./Skill";
-import Project from "./Project";
+import { Banner, AboutMe, Skill, Project, Experience } from "../Home";
 
 const Home = () => {
   return (
@@ -10,6 +7,7 @@ const Home = () => {
       <AboutMe />
       <Skill />
       <Project />
+      <Experience />
     </>
   );
 };

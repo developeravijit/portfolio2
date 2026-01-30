@@ -172,4 +172,22 @@ const projectSlides = [
   },
 ];
 
-export { navLinks, footerLinks, socialMedia, skills, techIcon, projectSlides };
+const expItem = [
+  {
+    id: 1,
+    title: "Process Associate",
+    company: "Netscribes India Pvt Ltd",
+    date: "February 2020 - December 2021",
+    details: "",
+  },
+];
+
+export {
+  navLinks,
+  footerLinks,
+  socialMedia,
+  skills,
+  techIcon,
+  projectSlides,
+  expItem,
+};

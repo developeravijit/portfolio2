@@ -66,20 +66,18 @@ p {
     margin: 0 auto;
     text-transform: uppercase;
     text-align: center;
+    font-weight: normal;
+    letter-spacing: 0.5em;
 
 }
 
 .hdrTitle1 {
     font-size: clamp(4rem, 13.6vw, 15rem);
-    font-weight: normal;
-    letter-spacing: 0.1em;
     color: rgba(255, 255, 255, 0.7);
 }
 
 .hdrTitle2 {
     font-size: clamp(3.5rem, 12.5vw, 12.86rem);
-    font-weight: normal;
-    letter-spacing: 0.1em;
     color: transparent;
     -webkit-text-stroke: 1px rgba(255, 37, 226, 0.8);
     position: absolute;
@@ -306,12 +304,68 @@ Button
 
 /* 
 =================================================
+Hamberger
+=================================================
+*/
+.hamburger {
+    cursor: pointer;
+}
+
+.hamburger input {
+    display: none;
+}
+
+.hamburger svg {
+    /* The size of the SVG defines the overall size */
+    height: 3em;
+    /* Define the transition for transforming the SVG */
+    transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line {
+    fill: none;
+    stroke: white;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 3;
+    /* Define the transition for transforming the Stroke */
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line-top-bottom {
+    stroke-dasharray: 12 63;
+}
+
+.hamburger input:checked+svg {
+    transform: rotate(-45deg);
+}
+
+.hamburger input:checked+svg .line-top-bottom {
+    stroke-dasharray: 20 300;
+    stroke-dashoffset: -32.42;
+}
+
+
+/* 
+=================================================
 Navbar
 =================================================
 */
 
-.navbar {
+.hdr-sec {
     background: url(/public/image/navbarBg.png) no-repeat center/cover;
+    padding: 5px 0 0;
+    position: relative;
+}
+
+.logo {
+    max-width: 120px;
+
+}
+
+.logo>img {
+    object-fit: cover;
 }
 
 .nav-item {
@@ -326,7 +380,7 @@ Navbar
 .nav-links {
     color: var(--secondary-color);
     letter-spacing: 0.1em;
-    font-size: clamp(1rem, 1rem + 0.5vw, 1.29rem);
+    font-size: clamp(1rem, 1rem + 0.8vw, 1.6rem);
     position: relative;
     overflow: hidden;
 }
@@ -357,6 +411,10 @@ Navbar
 .nav-links:hover .animate-name2 {
     transform: translateY(0);
     opacity: 1;
+}
+
+.hamberger-btn {
+    /* display: none; */
 }
 
 /* 
@@ -735,6 +793,31 @@ Responsive
 }
 
 @media screen and (max-width:576px) {
+
+    .hamberger-btn {
+        display: block;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+
+    .offcanvas {
+        position: fixed;
+        flex-direction: column;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        transition: right 0.3s ease;
+    }
+
+    .offcanvas.active {
+        right: 0;
+    }
+
+    .nav-item {
+        margin: 0;
+    }
 
 
     .project-sec {
