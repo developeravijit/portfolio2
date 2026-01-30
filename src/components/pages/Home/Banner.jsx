@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import PrimaryBtn from "../../Button/PrimaryBtn";
 
 const Banner = () => {
+  const navigate = useNavigate();
   return (
     <section className="section-tab">
       <div className="container">
@@ -13,7 +15,7 @@ const Banner = () => {
             <img src={"image/profileImg.png"} alt="Avijit Roy" />
           </div>
         </div>
-        <PrimaryBtn name="Contact Me" />
+        <PrimaryBtn name="Contact Me" onClick={() => navigate("/contact")} />
       </div>
     </section>
   );

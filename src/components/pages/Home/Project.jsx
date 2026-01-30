@@ -3,8 +3,9 @@ import "keen-slider/keen-slider.min.css";
 import { projectSlides } from "../../../constant";
 import { useRef } from "react";
 import PrimaryBtn from "../../Button/PrimaryBtn";
+import { useNavigate } from "react-router-dom";
 const carousel = (slider) => {
-  const z = 300;
+  const z = 350;
   function rotate() {
     const deg = 360 * slider.track.details.progress;
     slider.container.style.transform = `translateZ(-${z}px) rotateY(${-deg}deg)`;
@@ -18,8 +19,11 @@ const carousel = (slider) => {
   });
   slider.on("detailsChanged", rotate);
 };
+
+const animation = { duration: 40000, easing: (t) => t };
 const Project = () => {
   const isDragging = useRef(false);
+  const navigate = useNavigate();
 
   const [sliderRef] = useKeenSlider(
     {
@@ -27,32 +31,43 @@ const Project = () => {
       dragEnd: () => {
         setTimeout(() => (isDragging.current = false), 0);
       },
+      drag: false,
       loop: true,
       selector: ".carousel__cell",
       renderMode: "custom",
       mode: "free-snap",
+      created(s) {
+        s.moveToIdx(5, true, animation);
+      },
+      updated(s) {
+        s.moveToIdx(s.track.details.abs + 5, true, animation);
+      },
+      animationEnded(s) {
+        s.moveToIdx(s.track.details.abs + 5, true, animation);
+      },
     },
     [carousel],
   );
   return (
-    <section className="section-tab project-sec">
+    <section className="project-sec">
       <div className="container">
-        <div className="project-btn mb-2.5">
-          <PrimaryBtn name="Projects" />
+        <div className="project-btn relative z-10 mb-10">
+          <PrimaryBtn name="Projects" onClick={() => navigate("/Projects")} />
         </div>
         <div className="wrapper">
           <div className="scene">
             <div className="carousel keen-slider" ref={sliderRef}>
-              {projectSlides.map(({ id, image, url }) => (
+              {projectSlides.map(({ id, image, url, name }) => (
                 <div
                   className="carousel__cell"
                   key={id}
-                  onClick={() => {
-                    if (isDragging.current) return;
-                    window.open(url, "_blank");
-                  }}
+                  // onClick={(e) => {
+                  //   e.stopPropagation();
+                  //   if (isDragging.current) return;
+                  //   window.open(url, "_blank");
+                  // }}
                 >
-                  <img src={image} alt="" />
+                  <img src={image} alt={name} />
                 </div>
               ))}
             </div>

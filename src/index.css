@@ -14,7 +14,7 @@
     --primary-color: #FFFFFF;
     --secondary-color: rgba(255, 255, 255, 0.6);
     --tertiary-color: #D1D1D1;
-    --animation-duration: 32s;
+    --animation-duration: 24s;
     --services-totalItems: 8;
 }
 
@@ -70,14 +70,14 @@ p {
 }
 
 .hdrTitle1 {
-    font-size: clamp(3.5rem, 13.2vw, 15rem);
+    font-size: clamp(4rem, 13.6vw, 15rem);
     font-weight: normal;
     letter-spacing: 0.1em;
     color: rgba(255, 255, 255, 0.7);
 }
 
 .hdrTitle2 {
-    font-size: clamp(3rem, 12vw, 12.86rem);
+    font-size: clamp(3.5rem, 12.5vw, 12.86rem);
     font-weight: normal;
     letter-spacing: 0.1em;
     color: transparent;
@@ -466,11 +466,11 @@ Skills
 
 @keyframes slideToRight {
     0% {
-        right: -20%;
+        left: -20%;
     }
 
     100% {
-        right: 97%;
+        left: 97%;
     }
 }
 
@@ -481,10 +481,26 @@ Project
 =================================================
 */
 
-
+.project-sec {
+    padding: 100px 0px;
+}
 
 .project-btn>.buttonBox {
     justify-content: end !important;
+}
+
+.project-btn .btn {
+    -webkit-box-reflect: unset;
+}
+
+.carousel__cell {
+    position: absolute;
+    width: 300px;
+    left: 10px;
+    height: 300px;
+    border: none;
+    -webkit-box-reflect: below 12px linear-gradient(transparent, rgba(0, 0, 0, 0.4));
+    cursor: grabbing;
 }
 
 .carousel__cell img {
@@ -496,6 +512,7 @@ Project
     border-radius: 30px;
 }
 
+
 .wrapper {
     display: flex;
     justify-content: center;
@@ -503,7 +520,7 @@ Project
 
 .scene {
     width: 260px;
-    height: 200px;
+    height: 300px;
     perspective: 1000px;
     position: relative;
 
@@ -516,16 +533,6 @@ Project
     overflow: visible;
     transform: translateZ(-288px);
     transform-style: preserve-3d;
-}
-
-.carousel__cell {
-    position: absolute;
-    width: 240px;
-    left: 10px;
-    height: 200px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    -webkit-box-reflect: below 12px linear-gradient(transparent, rgba(0, 0, 0, 0.4));
-    cursor: grabbing;
 }
 
 
@@ -687,7 +694,7 @@ Responsive
 
 @media screen and (max-width:992px) {
     .section-tab {
-        padding: 50px 0;
+        padding: 50px 0 0;
     }
 
     .profileImg {
@@ -712,7 +719,7 @@ Responsive
 
 @media screen and (max-width:768px) {
     .section-tab {
-        padding: 30px 0;
+        padding: 30px 0 0;
     }
 
     .profileImg {
@@ -722,19 +729,21 @@ Responsive
     .title2::after {
         right: -40%;
     }
+
+
+
 }
 
 @media screen and (max-width:576px) {
-    .section-tab {
-        padding: 5px 0;
-    }
+
 
     .project-sec {
-        padding: 50px 0 0;
+        padding: 30px 0 100px;
     }
 
     .profileImg {
-        max-width: 110px;
+        max-width: 140px;
+        bottom: 100%;
     }
 
     .btn {
@@ -784,5 +793,8 @@ Responsive
         }
     }
 
+    .carousel__cell {
+        width: 280px;
+    }
 
 }

@@ -1,4 +1,5 @@
-const Project = () => {
+
+const ProjectPage = () => {
   return (
     <div>
       <h1 className="text-white text-4xl">Project</h1>
@@ -6,4 +7,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default ProjectPage;

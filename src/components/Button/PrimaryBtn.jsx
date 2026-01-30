@@ -1,10 +1,7 @@
-import { useNavigate } from "react-router-dom";
-
-const PrimaryBtn = ({ name }) => {
-  const navigate = useNavigate();
+const PrimaryBtn = ({ name, onClick }) => {
   return (
     <div className="buttonBox flex justify-center">
-      <button className="btn" onClick={() => navigate("/contact")}>
+      <button className="btn" onClick={onClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="arr-2"
