@@ -482,7 +482,7 @@ Project
 */
 
 .project-sec {
-    padding: 100px 0px;
+    padding: 50px 0px 100px;
 }
 
 .project-btn>.buttonBox {
@@ -785,11 +785,11 @@ Responsive
 
     @keyframes slideToRight {
         0% {
-            right: -20%;
+            left: -20%;
         }
 
         100% {
-            right: 120%;
+            left: 120%;
         }
     }
 
