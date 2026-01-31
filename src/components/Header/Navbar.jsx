@@ -1,10 +1,25 @@
 import { NavLink } from "react-router-dom";
 import { navLinks } from "../../constant";
 import Hamberger from "../Button/Hamberger";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const { open, setOpen } = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("isOpen");
+      document.documentElement.classList.add("isOpen");
+    } else {
+      document.body.classList.remove("isOpen");
+      document.documentElement.classList.remove("isOpen");
+    }
+    return () => {
+      document.body.classList.remove("isOpen");
+      document.documentElement.classList.remove("isOpen");
+    };
+  }, [open]);
+
   return (
     <header className="hdr-sec">
       <div className="container">
@@ -12,13 +27,13 @@ const Navbar = () => {
           <div className="logo">
             <img src={"image/logo4.png"} alt="Avijit" />
           </div>
-          <div className="hamberger-btn">
-            <Hamberger />
+          <div className="hamberger-btn ml-auto">
+            <Hamberger open={open} setOpen={setOpen} />
           </div>
-          <div className="navbar-nav flex items-center">
-            <ul
-              className={`offcanvas ${open ? "active" : ""} flex items-center ml-auto`}
-            >
+          <div
+            className={`navbar-nav ${open ? "active" : ""} flex items-center`}
+          >
+            <ul className="offcanvas  flex items-center ml-auto">
               {navLinks.map(({ id, name, path }) => (
                 <li key={id} className="nav-item">
                   <NavLink
