@@ -2,7 +2,7 @@ import { skills, techIcon } from "../../../constant";
 
 const Skill = () => {
   return (
-    <section className="section-tab abt-sec">
+    <section className="section-tab skill-sec">
       <div className="container">
         <div className="skill-cntn">
           <div className="bnr-hdr">

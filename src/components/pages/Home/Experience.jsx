@@ -4,11 +4,13 @@ const Experience = () => {
   return (
     <section className="exp-sec">
       <div className="container">
-        <div className="bnr-hdr">
-          <h2 className="title2 select-none">
-            <span className="hdr1">experience</span>
-            <span className="hdr2">experience</span>
-          </h2>
+        <div className="exp-titleCntn">
+          <div className="bnr-hdr">
+            <h2 className="title2 select-none">
+              <span className="hdr1">experience</span>
+              <span className="hdr2">experience</span>
+            </h2>
+          </div>
         </div>
         <div className="grid-box">
           {expItem.map(({ id, title, company, date, details }) => (

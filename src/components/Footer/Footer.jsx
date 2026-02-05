@@ -4,9 +4,13 @@ const Footer = () => {
   return (
     <footer className="footer-sec">
       <div className="container">
-        <div className="title2 select-none">
-          <span className="hdr1">Contact</span>
-          <span className="hdr2">Contact</span>
+        <div className="footer-cntn">
+          <div className="bnr-hdr">
+            <h2 className="title2 select-none">
+              <span className="hdr1">Contact</span>
+              <span className="hdr2">Contact</span>
+            </h2>
+          </div>
         </div>
         <div className="contact-list">
           <ul className="flex justify-center items-center gap-7">

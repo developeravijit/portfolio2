@@ -51,6 +51,14 @@ const Project = () => {
   return (
     <section className="project-sec">
       <div className="container">
+        <div className="project-cntn">
+          <div className="bnr-hdr">
+            <h2 className="title2 select-none">
+              <span className="hdr1">Projects</span>
+              <span className="hdr2">Projects</span>
+            </h2>
+          </div>
+        </div>
         <div className="project-btn relative z-10 mb-10">
           <PrimaryBtn name="Projects" onClick={() => navigate("/Projects")} />
         </div>

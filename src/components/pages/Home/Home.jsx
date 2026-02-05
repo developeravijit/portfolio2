@@ -1,4 +1,11 @@
-import { Banner, AboutMe, Skill, Project, Experience } from "../Home";
+import {
+  Banner,
+  AboutMe,
+  Skill,
+  Project,
+  Experience,
+  Certificate,
+} from "../Home";
 
 const Home = () => {
   return (
@@ -8,6 +15,7 @@ const Home = () => {
       <Skill />
       <Project />
       <Experience />
+      <Certificate />
     </>
   );
 };

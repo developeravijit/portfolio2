@@ -44,7 +44,7 @@ button {
 
 p {
     font-family: "Lato", sans-serif;
-
+    color: white;
 }
 
 .container {
@@ -60,6 +60,22 @@ p {
 }
 
 
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+}
+
+.col-30 {
+    width: 30%;
+    padding: 0 15px;
+}
+
+.col-70 {
+    width: 70%;
+    padding: 0 15px;
+}
 
 .title1 {
     max-width: 1200px;
@@ -92,8 +108,6 @@ p {
 
 .title2 {
     position: relative;
-    max-width: 252px;
-    margin: 0 auto 50px;
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
@@ -106,7 +120,7 @@ p {
     height: 2px;
     background: rgba(255, 255, 255, 0.7);
     top: 90%;
-    right: -55%;
+    right: -54%;
     transform: translate(-50%, 50%);
 }
 
@@ -137,6 +151,7 @@ p {
     line-height: 30px;
     font-size: clamp(1rem, 1.2vw + 0.5rem, 1.45rem);
     color: var(--primary-color);
+    text-transform: capitalize;
 }
 
 .title4 {
@@ -473,7 +488,8 @@ About Me
 }
 
 .abt-sec .bnr-hdr {
-    margin: 50px 0px 0;
+    max-width: 300px;
+    margin: 50px auto;
 }
 
 .abt-content p {
@@ -490,6 +506,13 @@ About Me
 Skills
 =================================================
 */
+
+.skill-cntn>.bnr-hdr {
+    max-width: 252px;
+    margin: 0 auto 50px;
+}
+
+
 
 .skill-list {
     font-family: "Lato", sans-serif;
@@ -559,6 +582,11 @@ Project
     padding: 50px 0px 100px;
 }
 
+.project-cntn>.bnr-hdr {
+    margin: 0 auto 30px;
+    max-width: 300px;
+}
+
 .project-btn>.buttonBox {
     justify-content: end !important;
 }
@@ -621,6 +649,12 @@ Experience
     padding: 50px 0;
 }
 
+
+.exp-titleCntn>.bnr-hdr {
+    margin: 50px auto;
+    max-width: 350px;
+}
+
 .grid-box {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -661,13 +695,55 @@ Experience
 
 /* 
 =================================================
+Awards & Certifications
+=================================================
+*/
+
+.certificate-titleCntn>.bnr-hdr {
+    max-width: 500px;
+    margin: 0 auto 50px;
+}
+
+.certificate-titleCntn .title2::after {
+    right: -30%;
+}
+
+
+
+.cert-row {
+    margin-bottom: 30px;
+}
+
+.exp-cntn>.title4 {
+    margin-bottom: 5px;
+}
+
+.exp-cntn>.title4:last-child {
+    margin-bottom: 0;
+}
+
+
+.cert-details P {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: clamp(1rem, 1vw + 0.4rem, 1.14rem);
+    margin-bottom: 5px;
+    letter-spacing: 0.1em;
+}
+
+/* 
+=================================================
 Footer
 =================================================
 */
 
 
 .footer-sec {
-    padding: 100px 0 0;
+    padding: 50px 0 0;
+}
+
+.footer-cntn>.bnr-hdr {
+    margin: 0 auto 50px;
+    max-width: 300px;
 }
 
 .footer-wrpr {
@@ -805,6 +881,105 @@ li:hover::after {
     color: rgba(209, 209, 209, 0.1);
 }
 
+/* 
+=================================================
+=================================================
+Project Page
+=================================================
+=================================================
+*/
+
+.project-pageSec {
+    padding: 50px 0;
+}
+
+.projectPage-title>.bnr-hdr {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.projectPage-title .title2::after {
+    right: -15%;
+}
+
+.projectPage-title2 {
+    display: none;
+}
+
+.projectPage-title2>.bnr-hdr {
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.porjectPage-cntn {
+    margin: 50px 0;
+}
+
+
+
+.project-img {
+    max-width: 500px;
+    height: 350px;
+    position: relative;
+}
+
+
+.project-img img {
+    object-fit: cover;
+    object-position: top;
+    border-radius: 20px;
+    filter: grayscale(0.1) brightness(0.8);
+    border-bottom: 2px dashed rgba(255, 37, 226, 0.7);
+    border-right: 2px dashed rgba(255, 37, 226, 0.7);
+    box-shadow: 6px 6px 20px 0px rgba(47, 255, 0, 0.5);
+
+}
+
+.project-img.reverse img {
+    border-right: none;
+    border-left: 2px dashed rgba(255, 37, 226, 0.7);
+    box-shadow: -6px 6px 20px 0px rgba(47, 255, 0, 0.5);
+
+}
+
+.project-nmbr {
+    font-size: clamp(3.5rem, 12.5vw, 12.86rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7);
+    position: absolute;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.cntn-box {
+    margin: 30px 0;
+    max-width: 100%;
+}
+
+.porjectPage-cntn p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: clamp(1rem, 1vw + 0.4rem, 1.14rem);
+    margin-top: 10px;
+    letter-spacing: 0.1em;
+}
+
+
+.project-img.reverse {
+    margin-left: auto;
+}
+
+
+.project-img.reverse .project-nmbr {
+    left: 0;
+    right: auto;
+}
+
+.reverse-cntn {
+    text-align: end;
+}
 
 
 
@@ -813,6 +988,15 @@ li:hover::after {
 Responsive
 =================================================
 */
+@media screen and (max-width:1200px) {
+    .projectPage-title2 {
+        display: block;
+    }
+
+    .projectPage-title {
+        display: none;
+    }
+}
 
 @media screen and (max-width:992px) {
     .section-tab {
@@ -833,8 +1017,12 @@ Responsive
         right: -50%;
     }
 
+    .certificate-titleCntn .title2::after {
+        right: -22%;
+    }
+
     .footer-sec {
-        padding: 70px 0px 0;
+        padding: 30px 0px 0;
     }
 
 }
@@ -842,6 +1030,10 @@ Responsive
 @media screen and (max-width:768px) {
     .section-tab {
         padding: 30px 0 0;
+    }
+
+    .skill-sec {
+        padding: 50px 0 0;
     }
 
     .profileImg {
@@ -854,6 +1046,34 @@ Responsive
 
     .grid-box {
         grid-template-columns: 1fr;
+    }
+
+    .exp-desc {
+        max-width: 100%;
+    }
+
+
+    .certificate-titleCntn .title2::after {
+        right: -15%;
+    }
+
+    .col-30,
+    .col-70 {
+        width: 100%;
+    }
+
+    .cert-cntn .exp-cntn {
+        max-width: 200px;
+        margin: 0 auto;
+        white-space: nowrap;
+    }
+
+    .cert-row {
+        margin-bottom: 20px;
+    }
+
+    .cert-details P {
+        text-align: center;
     }
 
 }
@@ -967,6 +1187,19 @@ Responsive
 
     .carousel__cell {
         width: 280px;
+    }
+
+
+    .certificate-titleCntn .title2::after {
+        right: 0%;
+    }
+
+}
+
+@media screen and (max-width:400px) {
+
+    .certificate-titleCntn .title2::after {
+        right: -14%;
     }
 
 }
