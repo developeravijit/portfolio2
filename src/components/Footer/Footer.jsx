@@ -1,4 +1,5 @@
-import { footerLinks, socialMedia } from "../../constant";
+import { footerLinks } from "../../services/json/footer";
+import { socialMedia } from "../../services/json/socialMedia";
 
 const Footer = () => {
   return (

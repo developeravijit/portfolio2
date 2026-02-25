@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { navLinks } from "../../constant";
 import Hamberger from "../Button/Hamberger";
 import { useEffect, useState } from "react";
+import { navLinks } from "../../services/json/navbar";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
