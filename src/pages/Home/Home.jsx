@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import Loading from "../../components/loading/Loading";
+import Loading from "../../components/Loading/Loading";
 
 const Banner = lazy(() => import("./Banner"));
 const AboutMe = lazy(() => import("./AboutMe"));
