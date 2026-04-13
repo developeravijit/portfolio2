@@ -60,8 +60,8 @@ const CreateProject = () => {
                   x1="149.5"
                   id="paint0_linear_8_3"
                 >
-                  <stop stopColor="#00E0FF" />
-                  <stop stopOpacity={0} stopColor="#65EDFF" offset={1} />
+                  <stop stopColor="#FF25E2" />
+                  <stop stopOpacity={0} stopColor="#2600FF" offset={1} />
                 </linearGradient>
               </defs>
             </svg>
@@ -118,7 +118,7 @@ const CreateProject = () => {
                   <feFlood result="BackgroundImageFix" floodOpacity={0} />
                   <feColorMatrix
                     result="hardAlpha"
-                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    values="0 0 0 0 1 0 0 0 0 0.15 0 0 0 0 0.9 0 0 0 1 0"
                     type="matrix"
                     in="SourceAlpha"
                   />
@@ -288,8 +288,9 @@ const CreateProject = () => {
                   cx={0}
                   id="paint0_radial_1_38"
                 >
-                  <stop stopColor="#00FFF0" />
-                  <stop stopColor="#001AFF" offset="0.901042" />
+                  <stop stopColor="#FF25E2" />
+                  <stop stopColor="#6A00FF" offset="0.5" />
+                  <stop stopColor="#2600FF" offset="1" />
                 </radialGradient>
               </defs>
             </svg>
