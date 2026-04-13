@@ -2,7 +2,6 @@ export const projectDetails = [
   {
     id: 1,
     image: "image/project1.png",
-    number: "01",
     content: [
       {
         id: 1,
@@ -24,7 +23,6 @@ export const projectDetails = [
   {
     id: 2,
     image: "image/project2.png",
-    number: "02",
     content: [
       {
         id: 1,
@@ -46,7 +44,6 @@ export const projectDetails = [
   {
     id: 3,
     image: "image/project3.png",
-    number: "03",
     content: [
       {
         id: 1,
@@ -68,7 +65,6 @@ export const projectDetails = [
   {
     id: 4,
     image: "image/project4.png",
-    number: "04",
     content: [
       {
         id: 1,
@@ -90,7 +86,6 @@ export const projectDetails = [
   {
     id: 5,
     image: "image/project5.png",
-    number: "05",
     content: [
       {
         id: 1,
@@ -112,7 +107,6 @@ export const projectDetails = [
   {
     id: 6,
     image: "image/project6.png",
-    number: "06",
     content: [
       {
         id: 1,
@@ -134,7 +128,6 @@ export const projectDetails = [
   {
     id: 7,
     image: "image/project7.png",
-    number: "07",
     content: [
       {
         id: 1,

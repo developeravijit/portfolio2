@@ -3,6 +3,7 @@ import Hamberger from "../Button/Hamberger";
 import { useEffect, useState } from "react";
 import { navLinks } from "../../services/json/navbar";
 
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
@@ -24,8 +25,12 @@ const Navbar = () => {
     <header className="hdr-sec">
       <div className="container">
         <nav className="navbar flex justify-between items-center">
-          <div className="logo">
-            <img src={"image/logo4.png"} alt="Avijit" />
+          <div className="max-w-33">
+            <img
+              src={"image/logo4.png"}
+              alt="Avijit"
+              className="!object-cover"
+            />
           </div>
           <div className="hamberger-btn ml-auto">
             <Hamberger open={open} setOpen={setOpen} />
@@ -33,13 +38,13 @@ const Navbar = () => {
           <div
             className={`navbar-nav ${open ? "active" : ""} flex items-center`}
           >
-            <ul className="offcanvas  flex items-center ml-auto">
+            <ul className="offcanvas flex items-center ml-auto">
               {navLinks.map(({ id, name, path }) => (
-                <li key={id} className="nav-item">
+                <li key={id} className="nav-item mr-6 last:mr-0">
                   <NavLink
                     to={path}
                     className={({ isActive }) =>
-                      `nav-links ${isActive ? "active" : ""} flex flex-col`
+                      `nav-links ${isActive ? "active" : ""} text-[var(--secondary-color)] text-[clamp(1.5rem,1.2rem+0.8vw,1.6rem)] relative overflow-hidden tracking-[0.1em]`
                     }
                   >
                     <span className="animate-name1">{name}</span>

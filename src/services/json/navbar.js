@@ -1,3 +1,5 @@
+import Plus from "../../components/Button/Plus";
+
 export const navLinks = [
   {
     id: 1,
@@ -7,11 +9,11 @@ export const navLinks = [
   {
     id: 2,
     name: "Projects",
-    path: "/Projects",
+    path: "/projects",
   },
   {
     id: 3,
     name: "Contact",
-    path: "/Contact",
+    path: "/contact",
   },
 ];

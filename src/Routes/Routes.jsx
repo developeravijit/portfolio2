@@ -1,8 +1,14 @@
 import { createBrowserRouter } from "react-router-dom";
+import { lazy } from "react";
 import Wrapper from "../layouts/Wrapper";
-import Home from "../pages/Home/Home";
-import ProjectPage from "../pages/Projects/ProjectPage";
-import Contact from "../pages/Contact/Contact";
+
+const Home = lazy(() => import("../pages/Home/Home"));
+const ProjectPage = lazy(() => import("../pages/Projects/ProjectPage"));
+const Contact = lazy(() => import("../pages/Contact/Contact"));
+const Login = lazy(() => import("../pages/CreateProject/Login"));
+const CreateProject = lazy(
+  () => import("../pages/CreateProject/CreateProject"),
+);
 
 const router = createBrowserRouter([
   {
@@ -10,16 +16,24 @@ const router = createBrowserRouter([
     element: <Wrapper />,
     children: [
       {
-        path: "/",
+        index: true,
         element: <Home />,
       },
       {
-        path: "Projects",
+        path: "projects",
         element: <ProjectPage />,
       },
       {
-        path: "Contact",
+        path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "create-project",
+        element: <CreateProject />,
       },
     ],
   },
