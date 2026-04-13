@@ -11,7 +11,7 @@ const Wrapper = () => {
     setLoading(true);
     const timeOut = setTimeout(() => {
       setLoading(false);
-    }, 1200);
+    }, 3000);
     return () => clearTimeout(timeOut);
   }, [location]);
 
