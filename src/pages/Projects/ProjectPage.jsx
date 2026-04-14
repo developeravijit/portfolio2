@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Plus from "../../components/Button/Plus";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading/Loading";
 
 const ProjectPage = () => {
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
     const fetchProject = async () => {
@@ -18,11 +20,15 @@ const ProjectPage = () => {
         setProjects(data.data);
       } catch (error) {
         console.log(`API Error ${error}`);
+      } finally {
+        setLoading(false);
       }
     };
     fetchProject();
   }, []);
-
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <section className="pt-[25px] sm:pt-[50px]">
       <div className="container">
@@ -41,7 +47,7 @@ const ProjectPage = () => {
           {projects.map((project) => (
             <div
               key={project._id}
-              className="group relative bg-[#0a0a0a] border border-white/10 rounded-xl overflow-hidden hover:border-white/20 transition-all duration-300"
+              className="group relative bg-[#0a0a0a] border border-white/10 rounded-xl overflow-hidden cursor-grabbing hover:border-white/20 transition-all duration-300"
             >
               {/* Image (FULL CARD) */}
               <div className="relative h-[300px] overflow-hidden">

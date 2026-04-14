@@ -1,43 +1,108 @@
-import React from "react";
+import React, { useState } from "react";
 import Logout from "../../components/Button/Logout";
 import { useNavigate } from "react-router-dom";
 
 const CreateProject = () => {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    title: "",
+    techstack: "",
+    url: "",
+    desc: "",
+  });
+
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+
+      const res = await fetch(
+        "https://portfolioprojectapi.onrender.com/api/create",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        },
+      );
+
+      const data = await res.json();
+
+      if (data) {
+        setTimeout(() => {
+          setMessage(data.message || "Project created");
+        }, 3000);
+
+        setFormData({
+          title: "",
+          techstack: "",
+          url: "",
+          desc: "",
+        });
+      }
+    } catch (err) {
+      setMessage("Something went wrong");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="my-[50px]">
       <div className="container">
         <Logout onClick={() => navigate("/login")} />
 
         <div id="project-Container">
-          <form className="project-form">
+          <form className="project-form" onSubmit={handleSubmit}>
             <div id="login-lable">Create Project</div>
             <input
               className="form-content"
               type="text"
               placeholder="Project Title"
               name="title"
+              onChange={handleChange}
+              value={formData.title}
             />
             <input
               className="form-content"
               type="text"
               placeholder="Techstack"
               name="techstack"
+              onChange={handleChange}
+              value={formData.techstack}
             />
             <input
               className="form-content"
               type="text"
               placeholder="Project Link"
               name="url"
+              onChange={handleChange}
+              value={formData.url}
             />
             <textarea
               className="form-content textarea"
               placeholder="Project Description"
               name="desc"
               rows="4"
+              onChange={handleChange}
+              value={formData.desc}
             />
 
-            <button className="create-btn">Submit</button>
+            <button className="create-btn">
+              {loading ? "Creating..." : "Submit"}
+            </button>
           </form>
           <div id="rays">
             <svg
@@ -296,6 +361,7 @@ const CreateProject = () => {
             </svg>
           </div>
         </div>
+        {message && <div className="popup-message">{message}</div>}
       </div>
     </section>
   );

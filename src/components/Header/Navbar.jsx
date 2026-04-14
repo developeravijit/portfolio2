@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Hamberger from "../Button/Hamberger";
 import { useEffect, useState } from "react";
 import { navLinks } from "../../services/json/navbar";
 
-
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (open) {
@@ -25,13 +25,17 @@ const Navbar = () => {
     <header className="hdr-sec">
       <div className="container">
         <nav className="navbar flex justify-between items-center">
-          <div className="max-w-33">
+          <div
+            className="max-w-40 cursor-pointer"
+            onClick={() => navigate("/")}
+          >
             <img
-              src={"image/logo4.png"}
+              src={"image/logo5.png"}
               alt="Avijit"
               className="!object-cover"
             />
           </div>
+
           <div className="hamberger-btn ml-auto">
             <Hamberger open={open} setOpen={setOpen} />
           </div>
