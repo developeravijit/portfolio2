@@ -1,27 +1,26 @@
+import { Outlet, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Loading from "../components/Loading/Loading";
 import Navbar from "../components/Header/Navbar";
 import Footer from "../components/Footer/Footer";
-import { Outlet, useLocation } from "react-router-dom";
-import { Suspense, useEffect, useState } from "react";
-import Loading from "../components/Loading/Loading";
 
 const Wrapper = () => {
   const location = useLocation();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     setLoading(true);
-    const timeOut = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-    return () => clearTimeout(timeOut);
   }, [location]);
 
   return (
     <>
-      {loading && <Loading />}
+      {loading && <Loading onComplete={() => setLoading(false)} />}
+
       <Navbar />
-      <Suspense fallback={<Loading />}>
-        <Outlet />
-      </Suspense>
+
+      {/* ✅ THIS LINE IS IMPORTANT */}
+      <Outlet context={{ loading }} />
+
       <Footer />
     </>
   );
